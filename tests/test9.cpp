@@ -22,7 +22,7 @@ resolvePath(const std::string& relPath)
 
 TEST(P452, Test9)
 {
-  std::string path = resolvePath("src/R-REC-P/");
+  std::string path = resolvePath("src/maps/");
   P452DigitalMaps maps = P452DigitalMaps(path);
   double Phie[101];
   double Phin[101];
