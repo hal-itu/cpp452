@@ -20,7 +20,18 @@ add_executable(
   test7.cpp
   test8.cpp
   test9.cpp
-  test10.cpp)
+  test10.cpp
+  test11.cpp
+  test12.cpp
+  test13.cpp
+  test14.cpp
+  test15.cpp
+  test16.cpp
+  test17.cpp
+  test101.cpp
+  test102.cpp
+  
+ )
 
 target_compile_features(p452_test PUBLIC cxx_std_17)
 
