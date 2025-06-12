@@ -51,9 +51,17 @@ jobs:
     - name: Prepare artifact folders
       run: |
         New-Item -Path "./artifact-staging/${{ matrix.folder }}/p452" -Name "lib" -ItemType "Directory"
+        New-Item -Path "./artifact-staging/${{ matrix.folder }}/p452" -Name "bin" -ItemType "Directory"
         New-Item -Path "./artifact-staging/${{ matrix.folder }}/p452" -Name "include" -ItemType "Directory"
         Copy-Item -Path "./build${{ matrix.buildsuffix }}/src/Release/p452_library.lib" -Destination "./artifact-staging/${{ matrix.folder }}/p452/lib/"
+        Copy-Item -Path "./build${{ matrix.buildsuffix }}/tests/Release/p452_test.exe" -Destination "./artifact-staging/${{ matrix.folder }}/p452/bin/"
         Copy-Item -Path "./include/p452.hpp" -Destination "./artifact-staging/${{ matrix.folder }}/p452/include/"
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4.6.2
+      with:
+        name: p452-dist-${{ matrix.buildsuffix }}
+        path: ./artifact-staging
 
   merge:
     runs-on: windows-2022
