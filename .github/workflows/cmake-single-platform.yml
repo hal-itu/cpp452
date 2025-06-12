@@ -52,7 +52,7 @@ jobs:
       run: |
         New-Item -Path "./artifact-staging/${{ matrix.folder }}/p452" -Name "lib" -ItemType "Directory"
         New-Item -Path "./artifact-staging/${{ matrix.folder }}/p452" -Name "include" -ItemType "Directory"
-        Copy-Item -Path "./build${{ matrix.platform }}/src/Release/p452_library.lib" -Destination "./artifact-staging/${{ matrix.folder }}/p452/lib/"
+        Copy-Item -Path "./build${{ matrix.buildsuffix }}/src/Release/p452_library.lib" -Destination "./artifact-staging/${{ matrix.folder }}/p452/lib/"
         Copy-Item -Path "./include/p452.hpp" -Destination "./artifact-staging/${{ matrix.folder }}/p452/include/"
 
   merge:
